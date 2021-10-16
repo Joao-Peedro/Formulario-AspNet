@@ -22,6 +22,7 @@ namespace WebApplication1.Models
         public DateTime DataLancamento { get; set; }
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Genero em formato inválido.")]
+        [Required(ErrorMessage = "O campo Genero é obrigatório.")]
         [StringLength(30, ErrorMessage = "Máximo de 30 caracteres.")]
         public string Genero { get; set; }
 
@@ -30,7 +31,7 @@ namespace WebApplication1.Models
         [Column(TypeName = "decimal(18,2)")]
         public decimal Valor { get; set; }
 
-        [RegularExpression(@"[0-5]*$", ErrorMessage = "Somente números de 0 a 5.")]
+        [RegularExpression(@"^[0-5]*$", ErrorMessage = "Somente números de 0 a 5.")]
         [Required(ErrorMessage = "Preencha o campo Avaliação.")]
         [Display(Name = "Avaliação")]
         public int Avaliacao { get; set; }
